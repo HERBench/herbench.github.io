@@ -58,12 +58,12 @@
           </svg>
           Code
         </a>
-        <a href="herbench.pdf" class="paper-btn paper-btn-primary" target="_blank" rel="noopener">
+        <a href="https://arxiv.org/abs/2512.14870" class="paper-btn paper-btn-primary" target="_blank" rel="noopener">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
             <path
               d="M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2zM9.5 3A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5v2z" />
           </svg>
-          Paper (PDF)
+          arXiv
         </a>
       </div>
     </header>
@@ -490,82 +490,93 @@
     <!-- Download & Evaluate -->
     <section class="method-section" id="download">
       <h2>Download and Evaluate</h2>
-      <div class="code-grid">
-        <h3>Prerequisites</h3>
-        <ul>
-          <li>Python 3.8-3.12</li>
-          <li>CUDA-compatible GPU (recommended: 48GB+ VRAM)</li>
-          <li>PyTorch 2.0+</li>
-        </ul>
-        <h3>Installation</h3>
-        <pre><code># Clone the repository
+
+      <div class="card-grid">
+        <!-- Card 1: Setup -->
+        <div class="card">
+          <h3>1. Setup</h3>
+          <p><strong>Prerequisites:</strong> Python 3.8-3.12, PyTorch 2.0+, and a CUDA GPU (48GB+ VRAM recommended).</p>
+          <div class="code-block" style="margin-top: 1rem;">
+            <pre><code># Clone and install
 git clone https://github.com/DanBenAmi/HERBench.git
 cd HERBench
 
-# Create and activate conda environment
+# Create env
 conda env create -f environment.yml
 conda activate herbench
+pip install -e .</code></pre>
+          </div>
+        </div>
 
-# Install HERBench package
-pip install -e .
-</code></pre>
-      </div>
-      <div class="code-block">
-        <h3>Download Benchmark Data</h3>
-        <pre><code># Via Hugging Face (recommended)
+        <!-- Card 2: Data -->
+        <div class="card">
+          <h3>2. Get Data</h3>
+          <p>Download video features and annotation files.</p>
+          <div class="code-block" style="margin-top: 1rem;">
+            <pre><code># Via Hugging Face (recommended)
 python scripts/download_data.py --source huggingface
 
 # Or via direct download
-python scripts/download_data.py --source direct
-</code></pre>
-      </div>
-      <div class="code-block">
-        <h3>Run Evaluation</h3>
-        <pre><code># Qwen2.5-VL with uniform frame selection
-python evaluation/run_evaluation.py model=qwen25vl frame_selector=uniform
+python scripts/download_data.py --source direct</code></pre>
+          </div>
+        </div>
 
-# InternVL3.5-8B with BLIP-based frame selection
-python evaluation/run_evaluation.py model=internvl35 frame_selector=blip
-</code></pre>
-        <h3>Calculate Metrics</h3>
-        <pre><code># Calculate accuracy
+        <!-- Card 3: Evaluate -->
+        <div class="card" style="grid-column: 1 / -1;">
+          <h3>3. Evaluate</h3>
+          <p>Run inference and calculate metrics.</p>
+          <div class="code-grid" style="margin-top: 1rem;">
+            <div class="code-block">
+              <h4>Run Inference</h4>
+              <pre><code># Qwen2.5-VL (uniform frames)
+python evaluation/run_evaluation.py \
+    model=qwen25vl frame_selector=uniform
+
+# InternVL3.5 (BLIP frames)
+python evaluation/run_evaluation.py \
+    model=internvl35 frame_selector=blip</code></pre>
+            </div>
+            <div class="code-block">
+              <h4>Calculate Metrics</h4>
+              <pre><code># Accuracy
 python evaluation/calculate_accuracy.py \
-    --predictions results/predictions_qwen25vl_uniform.json
+    --predictions results/predictions.json
 
-# Calculate MRFS
+# MRFS
 python evaluation/calculate_mrfs.py \
-    model=qwen25vl frame_selector=blip \
-    mrfs.min_frames=1 mrfs.max_frames=16
-</code></pre>
+    model=qwen25vl frame_selector=blip</code></pre>
+            </div>
+          </div>
+        </div>
       </div>
-  </div>
-  </section>
+    </section>
 
 
 
 
-  <!-- Citation -->
-  <section class="bibtex-section" id="citation">
-    <h2>Citation</h2>
-    <pre class="bibtex"><code>@article{herbench2025,
+    <!-- Citation -->
+    <section class="bibtex-section" id="citation">
+      <h2>Citation</h2>
+      <pre class="bibtex"><code>@article{herbench2025,
   title   = {HERBench: A Benchmark for Multi-Evidence Integration in Video Question Answering},
   author  = {Ben-Ami, Dan and Serussi, Gabriele and Cohen, Kobi and Baskin, Chaim},
   journal = {arXiv},
+  url     = {https://arxiv.org/abs/2512.14870},
   year    = {2025},
   note    = {* Equal contribution: Dan Ben-Ami and Gabriele Serussi}
 }</code></pre>
-  </section>
+    </section>
 
-  <!-- Footer -->
-  <footer class="page-footer">
-    <p>
-      (c) 2025 HERBench Team. You are welcome to reuse or adapt this page's source code under the MIT License.
-    </p>
-    <p>
-      Please include a link back to HERBench if you use this template. For questions, open an issue on GitHub or email
-      danbenami3@gmail.com, serussigabriele@gmail.com.
-    </p>
-  </footer>
+    <!-- Footer -->
+    <footer class="page-footer">
+      <p>
+        (c) 2025 HERBench Team. You are welcome to reuse or adapt this page's source code under the MIT License.
+      </p>
+      <p>
+        Please include a link back to HERBench if you use this template. For questions, open an issue on GitHub or email
+        danbenami3@gmail.com, serussigabriele@gmail.com.
+      </p>
+    </footer>
   </div>
 
   <script src="assets/js/main.js"></script>
