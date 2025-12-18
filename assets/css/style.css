@@ -1025,7 +1025,7 @@ tbody tr:nth-child(even) {
 
 .method-img {
   width: 100%;
-  max-height: 400px;
+  max-height: 700px;
   object-fit: contain;
   display: block;
 }
