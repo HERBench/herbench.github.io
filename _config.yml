@@ -1,0 +1,7 @@
+url: "https://herbench.github.io"
+title: "HERBench"
+description: "A benchmark for multi-evidence integration in Video Question Answering (VideoQA)."
+
+plugins:
+  - jekyll-sitemap
+  - jekyll-seo-tag
