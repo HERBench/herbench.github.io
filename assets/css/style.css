@@ -1046,3 +1046,25 @@ tbody tr:nth-child(even) {
   object-fit: contain;
   display: block;
 }
+
+/* Footer redesign */
+.page-footer {
+  padding: 32px 0;
+  margin-top: 48px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  text-align: center;
+  font-size: 0.95rem;
+  color: #666;
+  background-color: #f8f9fa;
+  /* Matches target site body/footer bg */
+}
+
+.page-footer a {
+  color: #4a90e2;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.page-footer a:hover {
+  text-decoration: underline;
+}
