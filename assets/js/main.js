@@ -1,7 +1,7 @@
 // Minimal helpers: smooth scroll and copy feedback for BibTeX
 
 document.addEventListener('DOMContentLoaded', () => {
-  // initTaskModals(); // data-bs-toggle handles modals now? Or this function is missing.
+  // initTaskModals(); 
 });
 
 function initSmoothScroll() {
@@ -44,21 +44,21 @@ const TASKS = {
     family: "Temporal Reasoning & Chronology (TR&C)",
     desc: "Arrange four shot descriptions into the correct chronological order using content cues alone.",
     abilities: "Understanding event order, high-level scene transitions, chronological reconstruction using content cues",
-    image: "assets/images/tasks_examples/TSO_example.png"
+    image: "assets/images/tasks_examples/TSO_example.webp"
   },
   "MPDR": {
     title: "Multi-Person Duration Reasoning",
     family: "Temporal Reasoning & Chronology (TR&C)",
     desc: "Comparing the duration of events involving different people or actions.",
     abilities: "Fine-grained time-span contrasts, interval statistics, comparing appearance durations across individuals",
-    image: "assets/images/tasks_examples/MPDR_example.png"
+    image: "assets/images/tasks_examples/MPDR_example.webp"
   },
   "ASII": {
     title: "Action Sequence Integrity & Identification",
     family: "Temporal Reasoning & Chronology (TR&C)",
     desc: "Identifying whether an action sequence is shown in reverse or has been tampered with.",
     abilities: "Micro-level task sequencing, action ordering, temporal understanding of fine-grained activities",
-    image: "assets/images/tasks_examples/ASII_example2.jpg"
+    image: "assets/images/tasks_examples/ASII_example2.webp"
   },
   // Referring & Tracking (R&T)
   "AGBI": {
@@ -66,21 +66,21 @@ const TASKS = {
     family: "Referring & Tracking (R&T)",
     desc: "Tracking an object defined by its appearance while it interacts with others.",
     abilities: "Social and relational cues, identity maintenance across time, interaction recognition",
-    image: "assets/images/tasks_examples/AGBI_example.png"
+    image: "assets/images/tasks_examples/AGBI_example.webp"
   },
   "AGAR": {
     title: "Appearance-Grounded Attribute Recognition",
     family: "Referring & Tracking (R&T)",
     desc: "Recognizing attributes of an object re-entering the frame after occlusion.",
     abilities: "Moment-specific attribute extraction, target tracking, reading contextual details from specific individuals",
-    image: "assets/images/tasks_examples/AGAR_example.png"
+    image: "assets/images/tasks_examples/AGAR_example.webp"
   },
   "AGLT": {
     title: "Appearance-Grounded Localization Trajectory",
     family: "Referring & Tracking (R&T)",
     desc: "Long-term tracking and localization of specific entities across the entire video.",
     abilities: "Global path-level motion reasoning, trajectory tracking, spatial exit/entry point identification",
-    image: "assets/images/tasks_examples/AGLT_example.png"
+    image: "assets/images/tasks_examples/AGLT_example.webp"
   },
   // Global Consistency & Verification (GC&V)
   "FAM": {
@@ -88,21 +88,21 @@ const TASKS = {
     family: "Global Consistency & Verification (GC&V)",
     desc: "Verifying if a specific action actually occurred or if it's a distractor/hallucination.",
     abilities: "Action-level absence detection, exhaustive video-wide verification, distinguishing what did not occur",
-    image: "assets/images/tasks_examples/FAM_example.png"
+    image: "assets/images/tasks_examples/FAM_example.webp"
   },
   "SVA": {
     title: "Scene Verification Arrangement",
     family: "Global Consistency & Verification (GC&V)",
     desc: "Verifying details about the scene arrangement, environment, or context.",
     abilities: "Shot-level fidelity checking, chronology verification, distinguishing real from fabricated descriptions",
-    image: "assets/images/tasks_examples/SVA_example.png"
+    image: "assets/images/tasks_examples/SVA_example.webp"
   },
   "FOM": {
     title: "False Object Memory",
     family: "Global Consistency & Verification (GC&V)",
     desc: "Detecting if an object was present or if a sequence implies a false object interaction.",
     abilities: "Object-level absence detection, interaction verification, identifying non-interacted objects",
-    image: "assets/images/tasks_examples/FOM_example.png"
+    image: "assets/images/tasks_examples/FOM_example.webp"
   },
   // Multi-Entity Aggregation & Numeracy (MEA&N)
   "MEGL": {
@@ -110,21 +110,21 @@ const TASKS = {
     family: "Multi-Entity Aggregation & Numeracy (MEA&N)",
     desc: "Listing and localizing all entities of a certain type across the video.",
     abilities: "Set membership verification, identity deduplication, exact-match appearance verification",
-    image: "assets/images/tasks_examples/MEGL_example.png"
+    image: "assets/images/tasks_examples/MEGL_example.webp"
   },
   "AC": {
     title: "Action Counting",
     family: "Multi-Entity Aggregation & Numeracy (MEA&N)",
     desc: "Counting the number of occurrences of a specific action.",
     abilities: "Event-accumulation across dispersed moments, counting repeated actions, temporal aggregation",
-    image: "assets/images/tasks_examples/AC_example.png"
+    image: "assets/images/tasks_examples/AC_example.webp"
   },
   "RLPC": {
     title: "Region-Localized People Counting",
     family: "Multi-Entity Aggregation & Numeracy (MEA&N)",
     desc: "Counting people within a specific region or context.",
     abilities: "Region-conditioned identity aggregation, spatial partitioning, counting with spatial constraints",
-    image: "assets/images/tasks_examples/RLPC_example.png"
+    image: "assets/images/tasks_examples/RLPC_example.webp"
   }
 };
 
@@ -207,8 +207,18 @@ const initAll = () => {
   initCopy();
   initTaskExplorer();
   initLeaderboardToggle();
+  preloadImages();
   console.log('StreamVQA initialized');
 };
+
+function preloadImages() {
+  Object.values(TASKS).forEach(task => {
+    if (task.image) {
+      const img = new Image();
+      img.src = task.image;
+    }
+  });
+}
 
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', initAll);
