@@ -972,3 +972,48 @@ tbody tr:nth-child(even) {
     border-radius: 8px;
   }
 }
+
+/* Benchmark Statistics Section */
+#benchmark-statistics .stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+  margin: 14px 0 18px;
+  padding: 0;
+}
+
+#benchmark-statistics .stat {
+  border: 1px solid rgba(0,0,0,0.12);
+  border-radius: 10px;
+  padding: 12px 12px 10px;
+  background: rgba(0,0,0,0.02);
+}
+
+#benchmark-statistics .stat dt {
+  font-size: 0.85rem;
+  opacity: 0.8;
+  margin-bottom: 6px;
+}
+
+#benchmark-statistics .stat dd {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+#benchmark-statistics figure {
+  margin: 18px 0;
+}
+
+#benchmark-statistics figcaption {
+  font-size: 0.9rem;
+  opacity: 0.85;
+  margin-top: 8px;
+}
+
+#benchmark-statistics img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  border: 1px solid rgba(0,0,0,0.10);
+}

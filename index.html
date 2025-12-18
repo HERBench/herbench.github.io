@@ -472,31 +472,73 @@
       </p>
     </section>
 
-    <!-- Additional Figures -->
-    <section class="comparison-section" id="figures">
+    <!-- Benchmark Statistics -->
+    <section id="benchmark-statistics">
       <h2>Benchmark statistics</h2>
-      <p class="section-description">Distribution of tasks, questions, and word cloud frequencies across the dataset.
-      </p>
-      <div class="figure-grid">
-        <div class="figure-card">
-          <div class="stats-layout">
-            <div class="stats-top-row">
-              <div class="stats-img-half">
-                <img src="assets/images/questions_per_dataset_pie.png" alt="Questions per Dataset" class="stats-img"
-                  loading="lazy">
-              </div>
-              <div class="stats-img-half">
-                <img src="assets/images/wordcloud.jpg" alt="Wordcloud" class="stats-img" loading="lazy">
-              </div>
-            </div>
-            <div class="stats-img-full">
-              <img src="assets/images/task_bar_chart.png" alt="Task Distribution Bar Chart" class="stats-img"
-                loading="lazy">
-            </div>
-          </div>
-        </div>
 
-      </div>
+      <p>
+        HERBench contains <strong>26,806</strong> five-way multiple-choice questions drawn from
+        <strong>336</strong> unique videos, spanning <strong>12</strong> compositional tasks across four
+        reasoning families. The benchmark targets long-horizon understanding: videos are long-form
+        (<strong>395s</strong> on average; <strong>60–2100s</strong> range) and cover diverse environments
+        (<strong>46%</strong> indoor / <strong>28%</strong> outdoor / <strong>26%</strong> mixed) and viewpoints.
+      </p>
+
+      <p>
+        For clean and comparable evaluation, each question has <strong>5 options</strong>
+        (random baseline <strong>20%</strong>), with answers balanced across choices (A–E).
+      </p>
+
+      <dl class="stats" aria-label="HERBench key statistics">
+        <div class="stat">
+          <dt>Questions</dt>
+          <dd>26,806 (5-way MCQ)</dd>
+        </div>
+        <div class="stat">
+          <dt>Videos</dt>
+          <dd>336 unique</dd>
+        </div>
+        <div class="stat">
+          <dt>Tasks</dt>
+          <dd>12 (4 families)</dd>
+        </div>
+        <div class="stat">
+          <dt>Avg. duration</dt>
+          <dd>395s (60–2100s)</dd>
+        </div>
+        <div class="stat">
+          <dt>Environments</dt>
+          <dd>46% indoor / 28% outdoor / 26% mixed</dd>
+        </div>
+        <div class="stat">
+          <dt>Random baseline</dt>
+          <dd>20% (5 choices)</dd>
+        </div>
+      </dl>
+
+      <p><strong>How to read the plots:</strong></p>
+      <ul>
+        <li><strong>Corpus composition:</strong> distribution of video sources/categories.</li>
+        <li><strong>Question language:</strong> frequent terms in questions (word cloud).</li>
+        <li><strong>Task coverage:</strong> question count by task (and/or by reasoning family).</li>
+      </ul>
+
+      <figure>
+        <img src="assets/images/questions_per_dataset_pie.png"
+          alt="Bar chart showing the composition of the HERBench video corpus by source/category.">
+        <figcaption><strong>Corpus composition.</strong> Breakdown of the video corpus by source/category.</figcaption>
+      </figure>
+
+      <figure>
+        <img src="assets/images/wordcloud.jpg"
+          alt="Word cloud showing the most frequent terms appearing in HERBench questions.">
+        <figcaption><strong>Question language.</strong> Most frequent terms in HERBench questions.</figcaption>
+      </figure>
+
+      <figure>
+        <img src="assets/images/task_bar_chart.png" alt="Bar chart showing the number of questions per HERBench task.">
+        <figcaption><strong>Task coverage.</strong> Number of questions per task.</figcaption>
+      </figure>
     </section>
 
 
