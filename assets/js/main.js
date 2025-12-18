@@ -1,7 +1,7 @@
 // Minimal helpers: smooth scroll and copy feedback for BibTeX
 
 document.addEventListener('DOMContentLoaded', () => {
-  initTaskModals();
+  // initTaskModals(); // data-bs-toggle handles modals now? Or this function is missing.
 });
 
 function initSmoothScroll() {
@@ -110,21 +110,21 @@ const TASKS = {
     family: "Multi-Entity Aggregation & Numeracy (MEA&N)",
     desc: "Listing and localizing all entities of a certain type across the video.",
     abilities: "Set membership verification, identity deduplication, exact-match appearance verification",
-    image: "assets/images/tasks examples/MEGL_example.png"
+    image: "assets/images/tasks_examples/MEGL_example.png"
   },
   "AC": {
     title: "Action Counting",
     family: "Multi-Entity Aggregation & Numeracy (MEA&N)",
     desc: "Counting the number of occurrences of a specific action.",
     abilities: "Event-accumulation across dispersed moments, counting repeated actions, temporal aggregation",
-    image: "assets/images/tasks examples/AC_example.png"
+    image: "assets/images/tasks_examples/AC_example.png"
   },
   "RLPC": {
     title: "Region-Localized People Counting",
     family: "Multi-Entity Aggregation & Numeracy (MEA&N)",
     desc: "Counting people within a specific region or context.",
     abilities: "Region-conditioned identity aggregation, spatial partitioning, counting with spatial constraints",
-    image: "assets/images/tasks examples/RLPC_example.png"
+    image: "assets/images/tasks_examples/RLPC_example.png"
   }
 };
 
