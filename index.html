@@ -414,11 +414,9 @@
       <h2>Evidential Requirement (MRFS)</h2>
 
       <p class="section-description">
-        <strong>Evidential requirement.</strong>
         We quantify how much visual evidence a VideoQA item requires using the
-        <em>Minimum Required Frame-Set (MRFS)</em>: the smallest number of frames that must be integrated for a fixed
-        model
-        to answer correctly.
+        <em>Minimum Required Frame-Set (MRFS)</em>: the <strong>smallest number of frames that must be integrated for a
+          model to answer correctly.</strong>
         Higher MRFS indicates that questions are not solvable from a single salient snapshot and instead require
         integrating temporally separated cues.
       </p>
@@ -461,7 +459,7 @@
         Notably, this higher MRFS is achieved despite a shorter average video duration than LongVideoBench, suggesting
         the difficulty is driven by evidential density rather than video length alone.
         This metric-level effect is consistent with the benchmark construction, which explicitly filters out
-        single-frame-solvable items.
+        items that are solvable with too few frames.
       </p>
 
       <p class="section-description" style="font-size: 0.95em; opacity: 0.85; margin-top: 0.75rem;">
@@ -475,14 +473,15 @@
     <!-- Additional Figures -->
     <section class="comparison-section" id="figures">
       <h2>Benchmark statistics</h2>
-      <p>
-        The plots below summarize HERBench's composition: question counts by source dataset, the most frequent terms in
-        the question text, and the distribution of questions across tasks.
+      <p class="bench-note">
+        The plots below give a quick snapshot of HERBench: where the questions come from, what they talk about, and how
+        they’re distributed across tasks.
       </p>
-      <ul>
-        <li><strong>Questions per Dataset:</strong> how the benchmark is sourced.</li>
-        <li><strong>Wordcloud:</strong> common language patterns in the questions.</li>
-        <li><strong>Task Distribution:</strong> coverage (question count) per task.</li>
+
+      <ul class="bench-bullets">
+        <li><span class="bench-label">Source mix</span> — question count by dataset.</li>
+        <li><span class="bench-label">Language</span> — frequent terms in the questions (word cloud).</li>
+        <li><span class="bench-label">Coverage</span> — question count across tasks.</li>
       </ul>
       <div class="figure-grid">
         <div class="figure-card">
