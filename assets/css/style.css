@@ -1068,3 +1068,18 @@ tbody tr:nth-child(even) {
 .page-footer a:hover {
   text-decoration: underline;
 }
+
+/* Logos Section */
+.publication-logos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1.5rem 0;
+  gap: 2rem;
+}
+
+.publication-logos img {
+  height: 80px;
+  width: auto;
+  object-fit: contain;
+}
