@@ -1,0 +1,574 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="HERBench: A benchmark for multi-evidence integration in VideoQA.">
+  <title>HERBench: Multi-Evidence VideoQA Benchmark</title>
+  <link rel="icon" href="assets/images/CVPR_Teaser_Plot_Web.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css?v=1.27">
+</head>
+
+<body>
+  <div class="page-container">
+    <!-- Title Section -->
+    <header class="paper-header" id="top">
+
+      <h1 class="paper-title">HERBench: A Benchmark for Multi-Evidence Integration in Video Question Answering</h1>
+      <div class="authors">
+        <span class="author">Dan Ben-Ami<sup>1,*</sup>, Gabriele Serussi<sup>1,*</sup>, Kobi Cohen<sup>2</sup>, Chaim
+          Baskin<sup>1</sup></span>
+      </div>
+      <div class="affiliations">
+        <span class="affiliation"><sup>1</sup>INSIGHT Lab, Ben-Gurion University of the Negev, Israel</span>
+        <span class="affiliation"><sup>2</sup>Ben-Gurion University of the Negev, Israel</span>
+      </div>
+      <div class="contribution-note">
+        <span><sup>*</sup> Equal contribution</span>
+      </div>
+      <p class="equal-contrib">VideoQA benchmark where every question requires ≥3 dispersed evidence segments</p>
+      <div class="paper-links">
+        <a href="https://github.com/DanBenAmi/HERBench/blob/main/USAGE_GUIDE.md" class="paper-btn paper-btn-primary"
+          target="_blank" rel="noopener">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+            <path
+              d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z" />
+          </svg>
+          Get Started
+        </a>
+        <a href="https://huggingface.co/datasets/DanBenAmi/HERBench" class="paper-btn paper-btn-primary" target="_blank"
+          rel="noopener">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+            <path
+              d="M12.5 3a.5.5 0 0 1 0 1h-9a.5.5 0 0 1 0-1h9zm0 3a.5.5 0 0 1 0 1h-9a.5.5 0 0 1 0-1h9zm0 3a.5.5 0 0 1 0 1h-9a.5.5 0 0 1 0-1h9z" />
+            <path
+              d="M12.5 13a.5.5 0 0 1 0 1h-9a.5.5 0 0 1 0-1h9zm-9-1a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-9z" />
+          </svg>
+          Dataset
+        </a>
+        <a href="https://github.com/DanBenAmi/HERBench" class="paper-btn paper-btn-primary" target="_blank"
+          rel="noopener">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+            <path
+              d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
+          </svg>
+          Code
+        </a>
+        <a href="herbench.pdf" class="paper-btn paper-btn-primary" target="_blank" rel="noopener">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+            <path
+              d="M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2zM9.5 3A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5v2z" />
+          </svg>
+          Paper (PDF)
+        </a>
+      </div>
+    </header>
+
+    <!-- Teaser Section -->
+    <section class="teaser-section">
+      <div class="teaser-video-container">
+        <video class="teaser-video" autoplay muted loop playsinline controls>
+          <source src="assets/images/video_teaser.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </section>
+
+    <!-- Abstract -->
+    <section class="abstract-section" id="abstract">
+      <h2>Abstract</h2>
+      <p class="abstract-text">
+        Video Large Language Models (Video-LLMs) are rapidly improving, yet current Video Question Answering
+        (VideoQA) benchmarks often allow questions to be answered from a single salient cue, under-testing reasoning
+        that
+        must aggregate multiple, temporally separated visual evidence. In this direction, we present
+        <strong>HERBench</strong>, a VideoQA
+        benchmark purpose-built to assess multi-evidence integration across time. Each question is constructed to
+        require
+        aggregating at least three non-overlapping evidential cues across distinct video segments (so neither language
+        priors
+        nor a single snapshot can suffice). HERBench comprises 26K five-way multiple-choice questions
+        organized into
+        twelve
+        compositional tasks that probe identity binding, cross-entity relations, temporal ordering, co-occurrence
+        verification,
+        and counting. To make evidential demand measurable, we introduce the <em>Minimum Required Frame-Set</em>
+        (MRFS)-the
+        smallest number of frames a model must fuse to answer correctly-and show that HERBench imposes
+        substantially
+        higher demand than prior datasets (mean MRFS 5.5 vs. 2.6-4.2). Evaluating 13 state-of-the-art Video-LLMs on
+        HERBench reveals pervasive failures: accuracies of 31-42% are only slightly above the 20%
+        random-guess baseline.
+        We disentangle this failure into two critical bottlenecks: (1) a <strong>retrieval deficit</strong>, where frame
+        selectors
+        overlook key
+        evidence, and (2) a <strong>fusion deficit</strong>, where models fail to integrate information even when all
+        necessary evidence
+        is
+        provided. By making cross-time evidence both unavoidable and quantifiable, HERBench establishes
+        a principled
+        target
+        for advancing robust, compositional video understanding.
+      </p>
+    </section>
+
+    <!-- Benchmark Overview Figure -->
+    <section class="method-section" id="overview">
+      <h2>Benchmark Overview</h2>
+      <div class="method-figure">
+        <img src="assets/images/Teaser_plot.png" alt="HERBench Overview" class="method-img">
+      </div>
+      <div class="method-description">
+        <p>
+          HERBench enforces high evidential requirements by design: questions draw on dispersed cues across long-form
+          videos, and answers are balanced to prevent positional bias. The MRFS (Minimum Required Frame Set) metric
+          reports the smallest number of frames a model with a fixed selector must fuse to answer correctly,
+          separating genuine multi-frame reasoning from single-cue shortcuts.
+        </p>
+      </div>
+    </section>
+
+    <!-- Leaderboard -->
+    <section class="results-section" id="leaderboard">
+      <h2>Leaderboard</h2>
+      <p class="section-description">Top-1 accuracy (%) with a 16-frame uniform budget (largest-capacity models
+        evaluated on a 10% subset).</p>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Rank</th>
+              <th>Model</th>
+              <th>Selector</th>
+              <th>Frames</th>
+              <th>Overall</th>
+              <th>TR&amp;C</th>
+              <th>R&amp;T</th>
+              <th>GC&amp;V</th>
+              <th>ME&N</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Ovis-2.5-9B</td>
+              <td>Uniform</td>
+              <td>16</td>
+              <td>42.1</td>
+              <td>18.9</td>
+              <td>73.5</td>
+              <td>46.8</td>
+              <td>29.2</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>InternVL3.5-14B</td>
+              <td>Uniform</td>
+              <td>16</td>
+              <td>41.5</td>
+              <td>37.7</td>
+              <td>69.3</td>
+              <td>31.1</td>
+              <td>27.8</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>InternVL3.5-8B</td>
+              <td>Uniform</td>
+              <td>16</td>
+              <td>41.1</td>
+              <td>33.6</td>
+              <td>70.2</td>
+              <td>29.7</td>
+              <td>30.8</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>Gemini-2.5-Flash</td>
+              <td>Uniform</td>
+              <td>16</td>
+              <td>40.3</td>
+              <td>29.7</td>
+              <td>69.9</td>
+              <td>34.9</td>
+              <td>26.8</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>MiniCPM-V4.5-8B</td>
+              <td>Uniform</td>
+              <td>16</td>
+              <td>39.9</td>
+              <td>23.8</td>
+              <td>71.1</td>
+              <td>39.7</td>
+              <td>24.9</td>
+            </tr>
+
+            <tr class="hidden-row">
+              <td>6</td>
+              <td>Qwen2.5-VL-72B</td>
+              <td>Uniform</td>
+              <td>16</td>
+              <td>39.7</td>
+              <td>26.9</td>
+              <td>70.9</td>
+              <td>36.6</td>
+              <td>24.4</td>
+            </tr>
+            <tr class="hidden-row">
+              <td>7</td>
+              <td>GPT-4.1</td>
+              <td>Uniform</td>
+              <td>16</td>
+              <td>39.4</td>
+              <td>25.4</td>
+              <td>66.0</td>
+              <td>37.1</td>
+              <td>29.0</td>
+            </tr>
+            <tr class="hidden-row">
+              <td>8</td>
+              <td>Qwen3-VL-8B</td>
+              <td>Uniform</td>
+              <td>16</td>
+              <td>38.3</td>
+              <td>19.0</td>
+              <td>68.7</td>
+              <td>40.6</td>
+              <td>25.2</td>
+            </tr>
+            <tr class="hidden-row">
+              <td>9</td>
+              <td>LLaVA-OneVision1.5-8B</td>
+              <td>Uniform</td>
+              <td>16</td>
+              <td>38.1</td>
+              <td>26.1</td>
+              <td>67.7</td>
+              <td>33.6</td>
+              <td>24.9</td>
+            </tr>
+            <tr class="hidden-row">
+              <td>10</td>
+              <td>Qwen2.5-VL-7B</td>
+              <td>Uniform</td>
+              <td>16</td>
+              <td>35.9</td>
+              <td>21.8</td>
+              <td>60.6</td>
+              <td>38.7</td>
+              <td>22.6</td>
+            </tr>
+            <tr class="hidden-row">
+              <td>11</td>
+              <td>LLaVA-OneVision-7B</td>
+              <td>Uniform</td>
+              <td>16</td>
+              <td>35.6</td>
+              <td>27.3</td>
+              <td>59.1</td>
+              <td>30.1</td>
+              <td>26.0</td>
+            </tr>
+            <tr class="hidden-row">
+              <td>12</td>
+              <td>Gemma-3-27B</td>
+              <td>Uniform</td>
+              <td>16</td>
+              <td>33.8</td>
+              <td>32.0</td>
+              <td>58.4</td>
+              <td>21.5</td>
+              <td>23.5</td>
+            </tr>
+            <tr class="hidden-row">
+              <td>13</td>
+              <td>LLaMA-4-Scout-17B</td>
+              <td>Uniform</td>
+              <td>16</td>
+              <td>31.4</td>
+              <td>18.8</td>
+              <td>57.3</td>
+              <td>25.5</td>
+              <td>24.2</td>
+            </tr>
+
+            <tr>
+              <td colspan="9" class="baseline-row">Random baseline (5-way MCQ): 20%</td>
+            </tr>
+          </tbody>
+        </table>
+        <button id="toggle-leaderboard" class="show-more-btn">Show More</button>
+      </div>
+      <div class="highlight-card">
+        <h3>Observed bottlenecks</h3>
+        <p><strong>Evidence retrieval:</strong> learned frame selectors beat uniform sampling yet trail oracle evidence
+          frames.<br>
+          <strong>Evidence fusion:</strong> even with oracle frames, models often over-weight a single frame rather than
+          integrating dispersed cues, missing the right answer.
+        </p>
+      </div>
+    </section>
+
+
+
+    <!-- Task Families -->
+    <section class="results-section" id="tasks">
+      <h2>Task Families</h2>
+      <p class="section-description">
+        Twelve compositional tasks grouped into four reasoning families:
+        Temporal Reasoning & Chronology (TR&C), Referring & Tracking (R&T),
+        Global Consistency & Verification (GC&V), and Multi-Entity Aggregation & Numeracy (MEA&N).
+      </p>
+
+      <div class="task-explorer">
+        <!-- Sidebar Menu -->
+        <div class="task-menu" id="task-menu">
+
+          <div class="task-family-group">
+            <h4>Temporal Reasoning & Chronology (TR&C)</h4>
+            <div class="task-menu-items">
+              <button class="task-menu-btn active" data-task="TSO">TSO: Temporal Shot Ordering</button>
+              <button class="task-menu-btn" data-task="MPDR">MPDR: Multi-Person Duration Reasoning</button>
+              <button class="task-menu-btn" data-task="ASII">ASII: Action Sequence Integrity & Identification</button>
+            </div>
+          </div>
+
+          <div class="task-family-group">
+            <h4>Referring & Tracking (R&T)</h4>
+            <div class="task-menu-items">
+              <button class="task-menu-btn" data-task="AGBI">AGBI: Appearance-Grounded Behavior Interactions</button>
+              <button class="task-menu-btn" data-task="AGAR">AGAR: Appearance-Grounded Attribute Recognition</button>
+              <button class="task-menu-btn" data-task="AGLT">AGLT: Appearance-Grounded Localization Trajectory</button>
+            </div>
+          </div>
+
+          <div class="task-family-group">
+            <h4>Global Consistency & Verification (GC&V)</h4>
+            <div class="task-menu-items">
+              <button class="task-menu-btn" data-task="FAM">FAM: False Action Memory</button>
+              <button class="task-menu-btn" data-task="SVA">SVA: Scene Verification Arrangement</button>
+              <button class="task-menu-btn" data-task="FOM">FOM: False Object Memory</button>
+            </div>
+          </div>
+
+          <div class="task-family-group">
+            <h4>Multi-Entity Aggregation & Numeracy (MEA&N)</h4>
+            <div class="task-menu-items">
+              <button class="task-menu-btn" data-task="MEGL">MEGL: Multi-Entities Grounding & Localization</button>
+              <button class="task-menu-btn" data-task="AC">AC: Action Counting</button>
+              <button class="task-menu-btn" data-task="RLPC">RLPC: Region-Localized People Counting</button>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Detail Viewer -->
+        <div class="task-viewer">
+          <div class="task-header">
+            <div class="task-title">
+              <span id="viewer-title">TSO: Temporal Shot Ordering</span>
+              <span class="task-badge" id="viewer-badge">Temporal Reasoning & Chronology (TR&C)</span>
+            </div>
+            <p class="task-desc" id="viewer-desc">
+              Arrange four shot descriptions into the correct chronological order using content cues alone.
+            </p>
+            <div class="task-abilities-box">
+              <span class="abilities-label">Abilities Tested:</span>
+              <span id="viewer-abilities">Understanding event order, high-level scene transitions, chronological
+                reconstruction using content cues</span>
+            </div>
+          </div>
+
+          <div class="task-content">
+            <img id="viewer-img" class="task-placeholder-img" src="" alt="Visual example">
+            <div class="placeholder-overlay" style="position: absolute; color: #64748b; font-weight: 500;">
+              <!-- Image Placeholder -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MRFS -->
+    <section class="results-section" id="mrfs">
+      <h2>Evidential Requirement (MRFS)</h2>
+
+      <p class="section-description">
+        <strong>Evidential requirement.</strong>
+        We quantify how much visual evidence a VideoQA item requires using the
+        <em>Minimum Required Frame-Set (MRFS)</em>: the smallest number of frames that must be integrated for a fixed
+        model
+        to answer correctly.
+        Higher MRFS indicates that questions are not solvable from a single salient snapshot and instead require
+        integrating temporally separated cues.
+      </p>
+
+      <div class="bar-chart-container" style="margin-top: 1rem;">
+        <!-- NExT-QA: 2.61 -->
+        <div class="bar-row">
+          <div class="bar-label">NExT-QA</div>
+          <div class="bar-track">
+            <div class="bar-fill" style="width: 43.5%;">2.61</div>
+          </div>
+        </div>
+        <!-- MVBench: 3.52 -->
+        <div class="bar-row">
+          <div class="bar-label">MVBench</div>
+          <div class="bar-track">
+            <div class="bar-fill" style="width: 58.7%;">3.52</div>
+          </div>
+        </div>
+        <!-- LongVideoBench: 4.07 -->
+        <div class="bar-row">
+          <div class="bar-label">LongVideoBench</div>
+          <div class="bar-track">
+            <div class="bar-fill" style="width: 67.8%;">4.07</div>
+          </div>
+        </div>
+        <!-- HERBench: 5.49 -->
+        <div class="bar-row">
+          <div class="bar-label"><strong>HERBench</strong></div>
+          <div class="bar-track">
+            <div class="bar-fill highlight" style="width: 91.5%;">5.49</div>
+          </div>
+        </div>
+      </div>
+
+      <p class="section-description" style="margin-top: 1.5rem;">
+        <strong>Cross-benchmark comparison.</strong>
+        HERBench exhibits the highest evidential requirement (mean MRFS = 5.49), exceeding LongVideoBench (4.07),
+        MVBench (3.52), and NExT-QA (2.61).
+        Notably, this higher MRFS is achieved despite a shorter average video duration than LongVideoBench, suggesting
+        the difficulty is driven by evidential density rather than video length alone.
+        This metric-level effect is consistent with the benchmark construction, which explicitly filters out
+        single-frame-solvable items.
+      </p>
+
+      <p class="section-description" style="font-size: 0.95em; opacity: 0.85; margin-top: 0.75rem;">
+        <strong>Protocol.</strong>
+        Because MRFS is defined with respect to a model <em>f</em>, a question-conditioned frame selector <em>r</em>,
+        and a frame budget <em>x</em>,
+        we report values under a standardized setup to enable apples-to-apples comparison across benchmarks.
+      </p>
+    </section>
+
+    <!-- Additional Figures -->
+    <section class="comparison-section" id="figures">
+      <h2>Benchmark statistics</h2>
+      <p class="section-description">Distribution of tasks, questions, and word cloud frequencies across the dataset.
+      </p>
+      <div class="figure-grid">
+        <div class="figure-card">
+          <div class="stats-layout">
+            <div class="stats-top-row">
+              <div class="stats-img-half">
+                <img src="assets/images/questions_per_dataset_pie.png" alt="Questions per Dataset" class="stats-img"
+                  loading="lazy">
+              </div>
+              <div class="stats-img-half">
+                <img src="assets/images/wordcloud.jpg" alt="Wordcloud" class="stats-img" loading="lazy">
+              </div>
+            </div>
+            <div class="stats-img-full">
+              <img src="assets/images/task_bar_chart.png" alt="Task Distribution Bar Chart" class="stats-img"
+                loading="lazy">
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+
+    <!-- Download & Evaluate -->
+    <section class="method-section" id="download">
+      <h2>Download and Evaluate</h2>
+      <div class="code-grid">
+        <h3>Prerequisites</h3>
+        <ul>
+          <li>Python 3.8-3.12</li>
+          <li>CUDA-compatible GPU (recommended: 48GB+ VRAM)</li>
+          <li>PyTorch 2.0+</li>
+        </ul>
+        <h3>Installation</h3>
+        <pre><code># Clone the repository
+git clone https://github.com/DanBenAmi/HERBench.git
+cd HERBench
+
+# Create and activate conda environment
+conda env create -f environment.yml
+conda activate herbench
+
+# Install HERBench package
+pip install -e .
+</code></pre>
+      </div>
+      <div class="code-block">
+        <h3>Download Benchmark Data</h3>
+        <pre><code># Via Hugging Face (recommended)
+python scripts/download_data.py --source huggingface
+
+# Or via direct download
+python scripts/download_data.py --source direct
+</code></pre>
+      </div>
+      <div class="code-block">
+        <h3>Run Evaluation</h3>
+        <pre><code># Qwen2.5-VL with uniform frame selection
+python evaluation/run_evaluation.py model=qwen25vl frame_selector=uniform
+
+# InternVL3.5-8B with BLIP-based frame selection
+python evaluation/run_evaluation.py model=internvl35 frame_selector=blip
+</code></pre>
+        <h3>Calculate Metrics</h3>
+        <pre><code># Calculate accuracy
+python evaluation/calculate_accuracy.py \
+    --predictions results/predictions_qwen25vl_uniform.json
+
+# Calculate MRFS
+python evaluation/calculate_mrfs.py \
+    model=qwen25vl frame_selector=blip \
+    mrfs.min_frames=1 mrfs.max_frames=16
+</code></pre>
+      </div>
+  </div>
+  </section>
+
+
+
+
+  <!-- Citation -->
+  <section class="bibtex-section" id="citation">
+    <h2>Citation</h2>
+    <pre class="bibtex"><code>@article{herbench2025,
+  title   = {HERBench: A Benchmark for Multi-Evidence Integration in Video Question Answering},
+  author  = {Ben-Ami, Dan and Serussi, Gabriele and Cohen, Kobi and Baskin, Chaim},
+  journal = {arXiv},
+  year    = {2025},
+  note    = {* Equal contribution: Dan Ben-Ami and Gabriele Serussi}
+}</code></pre>
+  </section>
+
+  <!-- Footer -->
+  <footer class="page-footer">
+    <p>
+      (c) 2025 HERBench Team. You are welcome to reuse or adapt this page's source code under the MIT License.
+    </p>
+    <p>
+      Please include a link back to HERBench if you use this template. For questions, open an issue on GitHub or email
+      danbenami3@gmail.com, serussigabriele@gmail.com.
+    </p>
+  </footer>
+  </div>
+
+  <script src="assets/js/main.js"></script>
+</body>
+
+</html>
